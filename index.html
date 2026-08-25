@@ -9,16 +9,22 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
-        html, body { margin: 0!important; padding: 0!important; width: 100%!important; height: 100%!important; font-family: 'Inter', sans-serif!important; background-color: #f3f4f6!important; }
-       .header-widget,.sidebar,.footer-outer,.post-title,.comments { display: none!important; }
-        #app-container { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 9999999; background: #f3f4f6; overflow-y: auto; overflow-x: hidden; }
-       .page-view { display: none; animation: fadeIn 0.3s ease-in-out; }
-       .page-view.active { display: block; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); }
-       .loader { border: 4px solid #f3f3f3; border-top: 4px solid #16a34a; border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; }
-        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-        #global-loader { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255,255,255,0.8); z-index: 99999; justify-content: center; align-items: center; flex-direction: column; }
-    </style>
+    html, body { margin: 0!important; padding: 0!important; width: 100%!important; height: 100%!important; font-family: 'Inter', sans-serif!important; background-color: #f3f4f6!important; padding-top: 80px!important; } /* TAMBAH INI */
+   .header-widget,.sidebar,.footer-outer,.post-title,.comments { display: none!important; }
+    #app-container { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 9999999; background: #f3f4f6; overflow-y: auto; overflow-x: hidden; padding-top: 0!important; } /* padding-top 0 */
+   .page-view { display: none; animation: fadeIn 0.3s ease-in-out; }
+   .page-view.active { display: block; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); }} /* KURUNG KURANG 1 TADI */
+   .loader { border: 4px solid #f3f3f3; border-top: 4px solid #16a34a; border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; }
+    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); }
+    #global-loader { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255,255,255,0.8); z-index: 99999; justify-content: center; align-items: center; flex-direction: column; }
+
+    /* TAMBAHAN KHUS HP */
+    @media (max-width: 640px) {
+        html, body { padding-top: 110px!important; } /* HP butuh lebih tinggi */
+        nav .font-bold.text-xl { font-size: 14px!important; line-height: 1.3!important; }
+    }
+</style>
 </head>
 <body>
     <img src="https://images.unsplash.com/photo-1598257006458-087169a1f08d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" style="display:none;" alt="Pemakaman Ar Raudhah">
@@ -29,7 +35,7 @@
         <nav class="bg-green-700 text-white shadow-lg sticky top-0 z-50">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between h-16">
-                    <div class="flex items-center cursor-pointer" onclick="navigate('home')"><i class="fa-solid fa-mosque text-2xl mr-3"></i><span class="font-bold text-xl hidden sm:block">Pemakaman Islam Ar Raudhah Bondowoso</span><span class="font-bold text-xl sm:hidden">Pemakaman Islam Ar Raudhah</span></div>
+                    <div class="flex items-center cursor-pointer" onclick="navigate('home')"><i class="fa-solid fa-mosque text-2xl mr-3"></i><span class="font-bold text-xl hidden sm:block">Pemakaman Islam<br>Ar Raudhah Bondowoso</span><span class="font-bold text-xl sm:hidden">Pemakaman Islam Ar Raudhah</span></div>
                     <div class="flex items-center space-x-2 sm:space-x-4">
                         <button onclick="navigate('home')" class="nav-btn px-3 py-2 rounded-md text-sm font-medium hover:bg-green-600 transition bg-green-800" data-target="home"><i class="fa-solid fa-home"></i><span class="hidden sm:inline ml-2">Beranda</span></button>
                         <button onclick="navigate('cari')" class="nav-btn px-3 py-2 rounded-md text-sm font-medium hover:bg-green-600 transition" data-target="cari"><i class="fa-solid fa-search"></i><span class="hidden sm:inline ml-2">Cari Makam</span></button>
