@@ -10,18 +10,17 @@
     
     <style>
     html, body { margin: 0!important; padding: 0!important; width: 100%!important; height: 100%!important; font-family: 'Inter', sans-serif!important; background-color: #f3f4f6!important; }
-   .header-widget,.sidebar,.footer-outer,.post-title,.comments { display: none!important; }
-    #app-container { position: relative!important; top: 0; left: 0; width: 100vw; min-height: 100vh; z-index: 1; background: #f3f4f6; overflow-y: auto; overflow-x: hidden; } /* UBAH INI: fixed jadi relative */
-   .page-view { display: none; animation: fadeIn 0.3s ease-in-out; }
-   .page-view.active { display: block; }
+  .header-widget,.sidebar,.footer-outer,.post-title,.comments { display: none!important; }
+    #app-container { position: relative!important; top: 0; left: 0; width: 100vw; min-height: 100vh; z-index: 1; background: #f3f4f6; overflow-y: auto; overflow-x: hidden; }
+  .page-view { display: none; animation: fadeIn 0.3s ease-in-out; }
+  .page-view.active { display: block; }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); }}
-   .loader { border: 4px solid #f3f3f3; border-top: 4px solid #16a34a; border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; }
+  .loader { border: 4px solid #f3f3f3; border-top: 4px solid #16a34a; border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; }
     @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); }}
     #global-loader { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255,255,255,0.8); z-index: 99999; justify-content: center; align-items: center; flex-direction: column; }
 
-    /* TAMBAHAN BUAT HP */
     @media (max-width: 640px) {
-        nav .font-bold.text-xl { font-size: 13px!important; line-height: 1.2!important; }
+        nav.font-bold.text-xl { font-size: 13px!important; line-height: 1.2!important; }
     }
 </style>
 </head>
@@ -61,7 +60,7 @@
                         </div>
                     </div>
                     <div class="p-8 grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
-                        <div class="bg-gray-50 p-6 rounded-xl border border-gray-100 shadow-sm"><i class="fa-solid fa-users text-4xl text-green-600 mb-3"></i><h3 class="text-xl font-bold text-gray-800" id="stat-total">0</h3><p class="text-gray-500">Total Makam Terisi</p></div>
+                        <div class="bg-gray-50 p-6 rounded-xl border-gray-100 shadow-sm"><i class="fa-solid fa-users text-4xl text-green-600 mb-3"></i><h3 class="text-xl font-bold text-gray-800" id="stat-total">0</h3><p class="text-gray-500">Total Makam Terisi</p></div>
                         <div class="bg-gray-50 p-6 rounded-xl border border-gray-100 shadow-sm"><i class="fa-solid fa-layer-group text-4xl text-blue-600 mb-3"></i><h3 class="text-xl font-bold text-gray-800" id="stat-blok">3</h3><p class="text-gray-500">Jumlah Blok Aktif</p></div>
                         <div class="bg-gray-50 p-6 rounded-xl border border-gray-100 shadow-sm"><i class="fa-solid fa-calendar-check text-4xl text-orange-600 mb-3"></i><h3 class="text-xl font-bold text-gray-800" id="stat-today">Sistem Aktif</h3><p class="text-gray-500">Status Layanan</p></div>
                     </div>
@@ -85,10 +84,8 @@
 
             <div id="view-denah" class="page-view">
                 <div class="bg-white p-6 rounded-xl shadow-md mb-6">
-                    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 mb-6 border-b pb-4">
-    <h2 class="text-2xl font-bold text-gray-800"><i class="fa-solid fa-map-location-dot text-green-600 mr-2"></i>Visualisasi Denah Blok</h2>
-    <select id="select-denah-blok" onchange="renderDenah()" class="w-full sm:w-auto border border-gray-300 rounded-md px-4 py-2 font-medium focus:ring-green-500 focus:border-green-500 bg-gray-50"><option value="A">Lihat Blok A (Timur)</option><option value="B">Lihat Blok B (Barat)</option><option value="C">Lihat Blok C (Tengah)</option></select></div>
-                    <div class="flex gap-4 mb-6 text-sm"><div class="flex items-center"><div class="w-4 h-4 bg-gray-200 border-gray-300 rounded mr-2"></div> Kosong / Tersedia</div><div class="flex items-center"><div class="w-4 h-4 bg-green-500 border border-green-600 rounded mr-2"></div> Terisi</div><div class="flex items-center"><div class="w-4 h-4 bg-yellow-400 border border-yellow-500 rounded mr-2"></div> Dipesan</div></div>
+                    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 mb-6 border-b pb-4"><h2 class="text-2xl font-bold text-gray-800"><i class="fa-solid fa-map-location-dot text-green-600 mr-2"></i>Visualisasi Denah Blok</h2><select id="select-denah-blok" onchange="renderDenah()" class="w-full sm:w-auto border border-gray-300 rounded-md px-4 py-2 font-medium focus:ring-green-500 focus:border-green-500 bg-gray-50"><option value="A">Lihat Blok A (Timur)</option><option value="B">Lihat Blok B (Barat)</option><option value="C">Lihat Blok C (Tengah)</option></select></div>
+                    <div class="flex gap-4 mb-6 text-sm"><div class="flex items-center"><div class="w-4 h-4 bg-gray-200 border border-gray-300 rounded mr-2"></div> Kosong / Tersedia</div><div class="flex items-center"><div class="w-4 h-4 bg-green-500 border-green-600 rounded mr-2"></div> Terisi</div><div class="flex items-center"><div class="w-4 h-4 bg-yellow-400 border border-yellow-500 rounded mr-2"></div> Dipesan</div></div>
                     <div id="denah-grid" class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-10 gap-3 p-4 bg-gray-50 rounded-lg border-gray-200"></div>
                 </div>
             </div>
@@ -118,9 +115,25 @@
                 <div class="bg-green-700 px-6 py-4 rounded-t-2xl flex justify-between items-center text-white"><h2 class="text-xl font-bold" id="modal-form-title"><i class="fa-solid fa-pen-to-square mr-2"></i>Form Data Makam</h2><button type="button" onclick="closeFormModal()" class="text-white hover:text-green-200 text-xl font-bold">&times;</button></div>
                 <form id="form-makam" onsubmit="handleSaveData(event)" class="p-6">
                     <input type="hidden" id="form-mode" value="add"><input type="hidden" id="form-id">
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4"><div><label class="block text-sm font-semibold text-gray-700 mb-1">ID Makam / Registrasi <span class="text-red-500">*</span></label><input type="text" id="input-id_makam" required class="w-full border border-gray-300 rounded-md px-3 py-2"></div><div><label class="block text-sm font-semibold text-gray-700 mb-1">Status Kavling <span class="text-red-500">*</span></label><select id="input-status" required class="w-full border-gray-300 rounded-md px-3 py-2"><option value="Terisi">Terisi</option><option value="Dipesan">Dipesan</option></select></div></div>
-                    <div class="bg-blue-50 p-4 rounded-lg border-blue-100 mb-4"><h3 class="font-bold text-blue-800 mb-3">Informasi Almarhum/Ahli Waris</h3><div class="grid grid-cols-1 sm:grid-cols-2 gap-4"><div><label class="block text-sm font-medium text-gray-700 mb-1">Nama Almarhum <span class="text-red-500">*</span></label><input type="text" id="input-nama" required class="w-full border border-gray-300 rounded-md px-3 py-2"></div><div><label class="block text-sm font-medium text-gray-700 mb-1">Jenis Kelamin</label><select id="input-jk" class="w-full border-gray-300 rounded-md px-3 py-2"><option value="Laki-laki">Laki-laki</option><option value="Perempuan">Perempuan</option></select></div><div><label class="block text-sm font-medium text-gray-700 mb-1">Tanggal Lahir</label><input type="date" id="input-tgl_lahir" class="w-full border border-gray-300 rounded-md px-3 py-2"></div><div><label class="block text-sm font-medium text-gray-700 mb-1">Tanggal Wafat</label><input type="date" id="input-tgl_wafat" class="w-full border border-gray-300 rounded-md px-3 py-2"></div><div><label class="block text-sm font-medium text-gray-700 mb-1">Nama Ahli Waris</label><input type="text" id="input-ahli_waris" class="w-full border-gray-300 rounded-md px-3 py-2"></div><div><label class="block text-sm font-medium text-gray-700 mb-1">Kontak Ahli Waris</label><input type="text" id="input-kontak" class="w-full border-gray-300 rounded-md px-3 py-2"></div></div></div>
-                    <div class="bg-orange-50 p-4 rounded-lg border-orange-100 mb-6"><h3 class="font-bold text-orange-800 mb-3">Lokasi Makam</h3><div class="grid grid-cols-1 sm:grid-cols-2 gap-4"><div><label class="block text-sm font-medium text-gray-700 mb-1">Blok Makam <span class="text-red-500">*</span></label><select id="input-blok" required class="w-full border-gray-300 rounded-md px-3 py-2"><option value="A">Blok A (Timur)</option><option value="B">Blok B (Barat)</option><option value="C">Blok C (Tengah)</option></select></div><div><label class="block text-sm font-medium text-gray-700 mb-1">Nomor Kavling <span class="text-red-500">*</span></label><input type="number" min="1" id="input-kavling" required class="w-full border border-gray-300 rounded-md px-3 py-2"></div></div></div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-1">ID Makam / Registrasi <span class="text-red-500">*</span></label>
+                            <input type="text" id="input-id_makam" readonly class="w-full border border-gray-300 rounded-md px-3 py-2 bg-gray-100 text-gray-600" placeholder="Otomatis saat simpan">
+                        </div>
+                        <div><label class="block text-sm font-semibold text-gray-700 mb-1">Status Kavling <span class="text-red-500">*</span></label><select id="input-status" required class="w-full border-gray-300 rounded-md px-3 py-2"><option value="Terisi">Terisi</option><option value="Dipesan">Dipesan</option></select></div>
+                    </div>
+                    <div class="bg-blue-50 p-4 rounded-lg border-blue-100 mb-4"><h3 class="font-bold text-blue-800 mb-3">Informasi Almarhum/Ahli Waris</h3><div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div><label class="block text-sm font-medium text-gray-700 mb-1">Nama Almarhum <span class="text-red-500">*</span></label><input type="text" id="input-nama" required class="w-full border border-gray-300 rounded-md px-3 py-2"></div>
+                        <div><label class="block text-sm font-medium text-gray-700 mb-1">Jenis Kelamin</label><select id="input-jk" onchange="updateAutoID()" class="w-full border-gray-300 rounded-md px-3 py-2"><option value="Laki-laki">Laki-laki</option><option value="Perempuan">Perempuan</option></select></div>
+                        <div><label class="block text-sm font-medium text-gray-700 mb-1">Tanggal Lahir</label><input type="date" id="input-tgl_lahir" class="w-full border border-gray-300 rounded-md px-3 py-2"></div>
+                        <div><label class="block text-sm font-medium text-gray-700 mb-1">Tanggal Wafat</label><input type="date" id="input-tgl_wafat" class="w-full border-gray-300 rounded-md px-3 py-2"></div>
+                        <div><label class="block text-sm font-medium text-gray-700 mb-1">Nama Ahli Waris</label><input type="text" id="input-ahli_waris" class="w-full border-gray-300 rounded-md px-3 py-2"></div>
+                        <div><label class="block text-sm font-medium text-gray-700 mb-1">Kontak Ahli Waris</label><input type="text" id="input-kontak" class="w-full border-gray-300 rounded-md px-3 py-2"></div>
+                    </div></div>
+                    <div class="bg-orange-50 p-4 rounded-lg border-orange-100 mb-6"><h3 class="font-bold text-orange-800 mb-3">Lokasi Makam</h3><div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div><label class="block text-sm font-medium text-gray-700 mb-1">Blok Makam <span class="text-red-500">*</span></label><select id="input-blok" onchange="updateAutoID()" required class="w-full border-gray-300 rounded-md px-3 py-2"><option value="A">Blok A (Timur)</option><option value="B">Blok B (Barat)</option><option value="C">Blok C (Tengah)</option></select></div>
+                        <div><label class="block text-sm font-medium text-gray-700 mb-1">Nomor Kavling <span class="text-red-500">*</span></label><input type="number" min="1" id="input-kavling" onchange="updateAutoID()" required class="w-full border border-gray-300 rounded-md px-3 py-2"></div>
+                    </div></div>
                     <div class="flex justify-end gap-3 border-t pt-4"><button type="button" onclick="closeFormModal()" class="px-5 py-2.5 bg-gray-200 text-gray-800 font-bold rounded-lg hover:bg-gray-300">Batal</button><button type="submit" class="px-5 py-2.5 bg-green-700 text-white font-bold rounded-lg hover:bg-green-800"><i class="fa-solid fa-save mr-2"></i>Simpan Data</button></div>
                 </form>
             </div>
@@ -132,6 +145,19 @@
         const GAS_URL = "https://script.google.com/macros/s/AKfycbyujxXxGOQ5Zn4GHHQy0cmelt2BEd_mrlCZPARGE6tfFPKD0q3prUr2esUC-pD9PLR2eA/exec"; 
         let currentUser = null; let userRole = null; let makamData = []; 
         const blokConfig = { "A": 50, "B": 50, "C": 50 };
+
+        function generateID(jk, blok, kavling) {
+            let kodeJK = jk === 'Laki-laki'? 'P' : 'W';
+            return `${kodeJK}${blok}-${kavling}`;
+        }
+        function updateAutoID() {
+            const jk = document.getElementById('input-jk').value;
+            const blok = document.getElementById('input-blok').value;
+            const kavling = document.getElementById('input-kavling').value;
+            if(jk && blok && kavling) {
+                document.getElementById('input-id_makam').value = generateID(jk, blok, kavling);
+            }
+        }
 
         window.onload = () => { if (IS_PREVIEW) { alert("Mode Preview Aktif"); } else { fetchDataFromGAS(); } };
 
@@ -175,7 +201,7 @@
                 const makam = dataBlok.find(d => parseInt(d.Nomor_Kavling) === i); const box = document.createElement('div');
                 let bgColor = 'bg-white'; let borderColor = 'border-gray-300'; let textColor = 'text-gray-500'; let statusText = 'Kosong';
                 if (makam) { if (makam.Status === 'Terisi') { bgColor = 'bg-green-100'; borderColor = 'border-green-500'; textColor = 'text-green-800'; statusText = makam.Nama_Almarhum.split(' ')[0]; } else if (makam.Status === 'Dipesan') { bgColor = 'bg-yellow-100'; borderColor = 'border-yellow-500'; textColor = 'text-yellow-800'; statusText = 'Dipesan'; } }
-                box.className = `${bgColor} border-2 ${borderColor} rounded-lg p-2 text-center h-24 flex-col justify-center items-center`;
+                box.className = `${bgColor} border-2 ${borderColor} rounded-lg p-2 text-center h-20 sm:h-24 flex flex-col justify-center items-center`;
                 box.innerHTML = `<span class="text-xs font-bold ${textColor}">Kav ${i}</span><span class="text-xs font-semibold ${textColor} truncate w-full px-1" style="font-size: 0.7rem;">${statusText}</span>`;
                 gridContainer.appendChild(box);
             }
@@ -192,15 +218,13 @@
             document.getElementById('form-makam').reset();
             if (mode === 'add') {
                 document.getElementById('modal-form-title').innerHTML = '<i class="fa-solid fa-plus-circle mr-2"></i>Tambah Data Baru';
-                document.getElementById('input-id_makam').value = `AR-${String(makamData.length + 1).padStart(3, '0')}`;
-                document.getElementById('input-id_makam').readOnly = false;
+                document.getElementById('input-id_makam').value = '';
             }
             else if (mode === 'edit' && makamId) {
                 document.getElementById('modal-form-title').innerHTML = '<i class="fa-solid fa-pen-to-square mr-2"></i>Edit Data Makam';
                 const data = makamData.find(d => d.ID_Makam === makamId);
                 if (data) {
                     document.getElementById('input-id_makam').value = data.ID_Makam;
-                    document.getElementById('input-id_makam').readOnly = true;
                     document.getElementById('input-nama').value = data.Nama_Almarhum;
                     document.getElementById('input-jk').value = data.Jenis_Kelamin;
                     document.getElementById('input-tgl_lahir').value = data.Tanggal_Lahir;
@@ -211,7 +235,7 @@
                     document.getElementById('input-kavling').value = data.Nomor_Kavling;
                     document.getElementById('input-status').value = data.Status;
                 }
-            } // <-- INI TADI YG KURANG
+            }
         }
         function closeFormModal() { document.getElementById('modal-form').classList.add('hidden'); }
 
@@ -227,10 +251,15 @@
 
         function handleSaveData(e) {
             e.preventDefault(); const mode = document.getElementById('form-mode').value;
-            const payload = { ID_Makam: document.getElementById('input-id_makam').value, Nama_Almarhum: document.getElementById('input-nama').value, Jenis_Kelamin: document.getElementById('input-jk').value, Tanggal_Lahir: document.getElementById('input-tgl_lahir').value, Tanggal_Wafat: document.getElementById('input-tgl_wafat').value, Nama_Ahli_Waris: document.getElementById('input-ahli_waris').value, Kontak_Ahli_Waris: document.getElementById('input-kontak').value, Blok_Makam: document.getElementById('input-blok').value, Nomor_Kavling: document.getElementById('input-kavling').value, Status: document.getElementById('input-status').value, Tanggal_Input: new Date().toISOString() };
-            const cekBentrok = makamData.find(d => d.Blok_Makam === payload.Blok_Makam && d.Nomor_Kavling === payload.Nomor_Kavling && d.ID_Makam!== payload.ID_Makam);
+            const jk = document.getElementById('input-jk').value;
+            const blok = document.getElementById('input-blok').value;
+            const kavling = document.getElementById('input-kavling').value;
+            document.getElementById('input-id_makam').value = generateID(jk, blok, kavling);
+
+            const payload = { ID_Makam: document.getElementById('input-id_makam').value, Nama_Almarhum: document.getElementById('input-nama').value, Jenis_Kelamin: jk, Tanggal_Lahir: document.getElementById('input-tgl_lahir').value, Tanggal_Wafat: document.getElementById('input-tgl_wafat').value, Nama_Ahli_Waris: document.getElementById('input-ahli_waris').value, Kontak_Ahli_Waris: document.getElementById('input-kontak').value, Blok_Makam: blok, Nomor_Kavling: kavling, Status: document.getElementById('input-status').value, Tanggal_Input: new Date().toISOString() };
+                        const cekBentrok = makamData.find(d => d.Blok_Makam === payload.Blok_Makam && d.Nomor_Kavling === payload.Nomor_Kavling && d.ID_Makam!== payload.ID_Makam);
             if (cekBentrok) { alert(`Gagal! Kavling ${payload.Nomor_Kavling} Blok ${payload.Blok_Makam} sudah dipakai.`); return; }
-            showLoader("Menyimpan data..."); callGAS({ action: mode === 'add'? 'addMakam' : 'updateMakam', data: payload }).then(res => { hideLoader(); if(res.status === 'success') { closeFormModal(); fetchDataFromGAS(); alert("Data berhasil disimpan!"); } else { alert("Gagal: " + res.message); } });
+            showLoader("Menyimpan data..."); callGAS({ action: mode === 'add'? 'addMakam' : 'updateMakam', data: payload }).then(res => { hideLoader(); if(res.status === 'success') { closeFormModal(); fetchDataFromGAS(); alert("Data berhasil disimpan! ID: " + payload.ID_Makam); } else { alert("Gagal: " + res.message); } });
         }
 
         function deleteMakam(id) {
@@ -280,8 +309,8 @@
 
         function callGAS(payload) {
             return fetch(GAS_URL, { method: 'POST', mode: 'no-cors', body: JSON.stringify(payload) })
-         .then(() => ({status: "success"}))
-         .catch(err => ({status: "error", message: err.message}));
+        .then(() => ({status: "success"}))
+        .catch(err => ({status: "error", message: err.message}));
         }
 
         function fetchDataFromGAS() {
@@ -303,4 +332,3 @@
     </script>
 </body>
 </html>
-       
