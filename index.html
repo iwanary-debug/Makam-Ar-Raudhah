@@ -9,20 +9,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
-    html, body { margin: 0!important; padding: 0!important; width: 100%!important; height: 100%!important; font-family: 'Inter', sans-serif!important; background-color: #f3f4f6!important; padding-top: 80px!important; } /* TAMBAH INI */
+    html, body { margin: 0!important; padding: 0!important; width: 100%!important; height: 100%!important; font-family: 'Inter', sans-serif!important; background-color: #f3f4f6!important; }
    .header-widget,.sidebar,.footer-outer,.post-title,.comments { display: none!important; }
-    #app-container { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 9999999; background: #f3f4f6; overflow-y: auto; overflow-x: hidden; padding-top: 0!important; } /* padding-top 0 */
+    #app-container { position: relative!important; top: 0; left: 0; width: 100vw; min-height: 100vh; z-index: 1; background: #f3f4f6; overflow-y: auto; overflow-x: hidden; } /* UBAH INI: fixed jadi relative */
    .page-view { display: none; animation: fadeIn 0.3s ease-in-out; }
    .page-view.active { display: block; }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); }} /* KURUNG KURANG 1 TADI */
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); }}
    .loader { border: 4px solid #f3f3f3; border-top: 4px solid #16a34a; border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; }
-    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); }
+    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); }}
     #global-loader { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255,255,255,0.8); z-index: 99999; justify-content: center; align-items: center; flex-direction: column; }
 
-    /* TAMBAHAN KHUS HP */
+    /* TAMBAHAN BUAT HP */
     @media (max-width: 640px) {
-        html, body { padding-top: 110px!important; } /* HP butuh lebih tinggi */
-        nav .font-bold.text-xl { font-size: 14px!important; line-height: 1.3!important; }
+        nav .font-bold.text-xl { font-size: 13px!important; line-height: 1.2!important; }
     }
 </style>
 </head>
